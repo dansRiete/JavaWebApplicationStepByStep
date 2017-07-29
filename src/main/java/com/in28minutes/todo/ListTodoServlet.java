@@ -13,10 +13,8 @@ public class ListTodoServlet extends HttpServlet {
 
 	private TodoService todoService = new TodoService();
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("todos", todoService.retrieveTodos());
-		request.getRequestDispatcher("/WEB-INF/views/list-todos.jsp").forward(
-				request, response);
+		request.getRequestDispatcher("/WEB-INF/views/list-todos.jsp").forward(request, response);
 	}
 }

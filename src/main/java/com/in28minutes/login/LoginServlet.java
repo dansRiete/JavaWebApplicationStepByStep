@@ -28,14 +28,11 @@ public class LoginServlet extends HttpServlet {
 	private LoginService userValidationService = new LoginService();
 	private TodoService todoService = new TodoService();
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
-				request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 
@@ -46,8 +43,7 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("/list-todos.do");
 		} else {
 			request.setAttribute("errorMessage", "Invalid Credentials!");
-			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
-					request, response);
+			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 		}
 	}
 
